@@ -20,6 +20,7 @@ class CreatePostTmpsTable extends Migration
             $table->string('rows', 255)->default("-1");
             $table->integer('soPostId')->unsigned()->unique();
             $table->boolean('imported')->default(false);
+            $table->integer('codeBlockIndex')->default(-1);
         });
     }
 

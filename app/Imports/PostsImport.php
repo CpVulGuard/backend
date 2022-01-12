@@ -7,16 +7,19 @@ use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\SkipsOnError;
 use Maatwebsite\Excel\Concerns\SkipsErrors;
+use phpDocumentor\Reflection\Types\String_;
 
 class PostsImport implements ToModel, SkipsOnError
 {
     use Importable, SkipsErrors;
 
     protected $fileName;
+    protected $reason;
 
-    public function fromFile(string $fileName)
+    public function fromFile(string $fileName, string $reason)
     {
         $this->fileName = $fileName;
+        $this->reason = $reason;
         return $this;
     }
 
@@ -30,9 +33,11 @@ class PostsImport implements ToModel, SkipsOnError
         return new PostTmp([
             'created_at'   => Date::now(),
             'uptated_at'   => Date::now(),
-            'reason'       => $this->fileName,
+            'reason'       => $this->reason,
             'soPostId'     => $row[0],
             'imported'     => true,
+            'codeBlockIndex' => -1,
+            'rows' => -1,
         ]);
     }
 }

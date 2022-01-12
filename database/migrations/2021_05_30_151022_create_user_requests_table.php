@@ -22,6 +22,7 @@ class CreateUserRequestsTable extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('codeBlockIndex')->default(-1);
+            $table->string('rows')->default("-1");
         });
     }
 

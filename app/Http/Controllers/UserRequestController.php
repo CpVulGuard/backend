@@ -20,7 +20,10 @@ class UserRequestController extends Controller
         UserRequest::create([
             'user_id' => $user_id,
             'soPostId' => $request->json("soPostId"),
-            'reason' => $request->json("reason")
+            'reason' => $request->json("reason"),
+            'codeBlockIndex' => $request->json("codeBlockIndex"),
+            'rows' => $request->json("rows"),
+            'type' => $request->json("type")
         ]);
     }
 
@@ -31,7 +34,8 @@ class UserRequestController extends Controller
             Post::create([
                 'soPostId' => $userRequest->soPostId,
                 'reason' => $userRequest->reason,
-                'codeBlockIndex' => $userRequest->codeBlockIndex
+                'codeBlockIndex' => $userRequest->codeBlockIndex,
+                'rows' => $userRequest->rows
             ]);
         } elseif ($userRequest->type =="delete")
         {

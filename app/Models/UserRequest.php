@@ -14,7 +14,8 @@ class UserRequest extends Model
         'soPostId',
         'user_id',
         'codeBlockIndex',
-        'rows'
+        'rows',
+        'type'
     ];
 
     /**

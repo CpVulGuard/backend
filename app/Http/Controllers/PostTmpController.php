@@ -35,7 +35,8 @@ class PostTmpController extends Controller
     {
         $file = $request->file('file')->store('temp');
         $fileName = $request->file('file')->getClientOriginalName();
-        $import = (new PostsImport())->fromFile($fileName);
+        $reason = $request->request->get('reason');
+        $import = (new PostsImport())->fromFile($fileName, $reason);
         $import->import($file);
         return redirect('/import-view');
     }
@@ -50,7 +51,9 @@ class PostTmpController extends Controller
                 Post::create([
                     'soPostId' => $post->soPostId,
                     'reason' => $post->reason,
-                    'imported' => true
+                    'imported' => true,
+                    'codeBlockIndex' => -1,
+                    'rows'=> -1
                 ]);
             }
             $post->delete();
