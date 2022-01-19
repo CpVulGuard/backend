@@ -1,4 +1,4 @@
-# Secuirty Advisor Backend
+# CpVulGuard Backend
 
 ## Instructions
 1. Install dependecies: `composer install`
