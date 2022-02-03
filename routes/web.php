@@ -42,5 +42,8 @@ Route::get('/request/reject/{id}', [UserRequestController::class, 'reject'])->mi
 
 Route::post('/token', [LoginController::class, 'login']);
 
+Route::get('/imprint', function () {
+    return view('imprint');
+})->name('imprint');
 
 require __DIR__.'/auth.php';
