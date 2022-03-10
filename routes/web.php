@@ -46,4 +46,8 @@ Route::get('/imprint', function () {
     return view('imprint');
 })->name('imprint');
 
+Route::get('/privacy', function () {
+    return view('privacy');
+})->name('privacy');
+
 require __DIR__.'/auth.php';

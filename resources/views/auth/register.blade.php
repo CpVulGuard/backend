@@ -11,12 +11,23 @@
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
-
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
-
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+            <!-- Consent -->
+            <div >
+                <div>Declaration of consent</div>
+                <div class="rounded-md border-2 p-2 mt-2">
+                    <div>Declaration of consent in accordance with GDPR for the processing of data by the Düsseldorf University of Applied Sciences</div>
+                    <div class="mt-2">For information on the scope of the processing of personal data, please refer to the <a href="{{ route('privacy') }}" class="underline">privacy policy</a>.</div>
+                    <div class="mt-2">Right of withdrawal</div>
+                    <div class="mt-2">The undersigned has the right to revoke this consent at any time without giving a reason with effect for the future. An e-mail to the person responsible according to the imprint is sufficient for this. The legality of the processing carried out on the basis of the consent up to the point of revocation is not affected by the revocation.</div>
+                    <div class="mt-2">Consequences of not signing</div>
+                    <div class="mt-2">The undersigned has the right not to agree to this declaration of consent - however, since CpVulGuard relies on the collection and processing of the data specified in the privacy policy, failure to sign would preclude use of the service.</div>
+                    <div class="mt-2">Consent of the person concerned</div>
+                    <div class="mt-2">By clicking on the following checkbox I consent to the collection and processing of my data by the Düsseldorf University of Applied Sciences voluntarily within the meaning of the <a href="{{ route('privacy') }}" class="underline">privacy policy</a> and I confirm that I have been informed about the data processing and my rights.</div>
+                </div>
+                <div class="flex items-start justify-start mt-2">
+                    <x-label for="consent" value="Consent to terms:" />
+                    <x-input id="consent" class="block mt-1 ml-4" type="checkbox" name="consent" required autofocus />
+                </div>
             </div>
 
             <!-- Email Address -->

@@ -6,5 +6,8 @@
         <a class="underline mx-2" href="{{ route('imprint') }}">
             <div>Imprint</div>
         </a>
+        <a class="underline mx-2" href="{{ route('privacy') }}">
+            <div>Privacy policy</div>
+        </a>
     </div>
 </nav>
