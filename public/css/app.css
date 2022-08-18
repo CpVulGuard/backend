@@ -11598,6 +11598,12 @@ select {
   height: 1px;
 }
 
+.logo-h-w {
+  margin-top: 5%;
+  height: 10%;
+  width: 10%;
+}
+
 .h-0\.5 {
   height: 0.125rem;
 }

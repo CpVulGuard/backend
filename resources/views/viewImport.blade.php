@@ -21,13 +21,13 @@
                                     <span class="text-gray-300">ID</span>
                                 </th>
                                 <th class="px-16 py-2">
-                                    <span class="text-gray-300 whitespace-nowrap">StackOverFlow ID</span>
+                                    <span class="text-gray-300 whitespace-nowrap">Stack Overflow ID</span>
                                 </th>
                                 <th class="px-16 py-2">
-                                    <span class="text-gray-300">Grund</span>
+                                    <span class="text-gray-300">Reason</span>
                                 </th>
                                  <th class="px-16 py-2">
-                                    <span class="text-gray-300">imported</span>
+                                    <span class="text-gray-300">Imported</span>
                                 </th>
                             </tr>
                             </thead>
@@ -45,9 +45,9 @@
                                     </td>
                                     <td class="px-16 py-2">
                                     @if($post['imported'] == 0)
-                                         <span class="text-center ml-2 font-semibold">Nein</span>
+                                         <span class="text-center ml-2 font-semibold">No</span>
                                     @elseif($post['imported'] == 1)
-                                        <span class="text-center ml-2 font-semibold">Ja</span>
+                                        <span class="text-center ml-2 font-semibold">Yes</span>
                                     @endif
 
                                     </td>

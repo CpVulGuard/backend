@@ -88,7 +88,8 @@ class PostController extends Controller
 
         if (!empty($filter)) {
             $posts = Post::sortable()
-                ->where('soPostId', 'like', '%'.$filter.'%')
+                ->where('reason', 'like', '%'.$filter.'%')
+                ->orWhere('soPostId', '=', $filter)
                 ->paginate(100);
         } else {
             $posts = Post::sortable()->paginate(100);
@@ -99,24 +100,17 @@ class PostController extends Controller
 
     public function deleteBySoPostId($soPostId)
     {
-        $post =  Post::where('soPostId', "=", $soPostId)->firstOrFail();
-        $post->delete();
+        Post::query()->firstWhere('soPostId', "=", $soPostId)->delete();
     }
 
     public function check(Request $request)
     {
-        $foundPosts = array();
-        $data = $request->json()->all();
-        $ids = $data['ids'];
-        foreach ($ids as &$soPostId) {
-            try {
-                $post =  Post::where('soPostId', "=", $soPostId)->firstOrFail();
-                array_push($foundPosts, $post);
-            } catch (ModelNotFoundException $e)
-            {
-
-            }
-        }
-        return response()->json($foundPosts);
+        $ids = $request->json()->all()['ids'];
+        $reportedPosts = Post::query()->whereIn('soPostId', $ids)->get();
+        $unreportedPosts = app('App\Http\Controllers\UnreportedPostController')->filterUnreported($ids);
+        return response()->json([
+            'reportedPosts' => $reportedPosts,
+            'unreportedPosts' => $unreportedPosts
+        ]);
     }
 }

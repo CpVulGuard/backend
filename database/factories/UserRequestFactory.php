@@ -26,7 +26,8 @@ class UserRequestFactory extends Factory
             'reason' => $this->faker->realText(),
             'soPostId' => $this->faker->numberBetween($int1=1000000),
             'codeBlockIndex' => $this->faker->numberBetween(0,10),
-            'rows' => $this->faker->randomElement(['1,4', '1', '1-10'])
+            'rows' => $this->faker->randomElement(['1,4', '1', '1-10']),
+            'realTime' => $this->faker->boolean()
         ];
     }
 }

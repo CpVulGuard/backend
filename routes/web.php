@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StackoverflowQueryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostTmpController;
@@ -17,11 +18,11 @@ use App\Http\Controllers\LoginController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [PostController::class,'showDashboard'])->middleware(['auth', 'admin']);
+Route::redirect('/', '/dashboard');
 
-Route::get('/dashboard',[PostController::class,'showDashboard'])->middleware(['auth', 'admin'])->name('dashboard');
+Route::get('/dashboard',[PostController::class,'showDashboard'])->middleware(['auth'])->name('dashboard');
 
-Route::resource('posts', PostController::class)->middleware(['auth']);
+//Route::resource('posts', PostController::class)->middleware(['auth']);
 Route::post('/check', [PostController::class, 'check'])->middleware(['auth:sanctum'])->name('check');
 
 Route::get('/import', [PostTmpController::class, 'initImport'])->name('start-import')->middleware(['auth', 'admin']);
@@ -34,6 +35,11 @@ Route::get('/users/admin/{id}', [UserController::class, 'makeAdmin'])->name('mak
 Route::get('/users/noadmin/{id}', [UserController::class, 'removeAdmin'])->name('remove-admin')->middleware(['auth', 'admin']);
 Route::get('/profile',[UserController::class, 'userProfile'])->middleware(['auth'])->name('userProfile');
 
+Route::get('/queries', [StackoverflowQueryController::class, 'showQueries'])->name('stackoverflow_queries')->middleware(['auth:sanctum']);
+Route::post('/queries', [StackoverflowQueryController::class, 'createQuery'])->name('create-query')->middleware(['auth', 'admin']);
+Route::get('/queries/enable/{id}', [StackoverflowQueryController::class, 'enableQuery'])->name('enable-query')->middleware(['auth', 'admin']);
+Route::get('/queries/disable/{id}', [StackoverflowQueryController::class, 'disableQuery'])->name('disable-query')->middleware(['auth', 'admin']);
+Route::get('/queries/delete/{id}', [StackoverflowQueryController::class, 'deleteQuery'])->name('delete-query')->middleware(['auth', 'admin']);
 
 Route::post('/request', [UserRequestController::class, 'store'])->middleware(['auth:sanctum']);
 Route::get('/request', [UserRequestController::class, 'index'])->name('request')->middleware(['auth', 'admin']);

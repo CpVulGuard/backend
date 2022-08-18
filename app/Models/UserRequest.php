@@ -15,7 +15,8 @@ class UserRequest extends Model
         'user_id',
         'codeBlockIndex',
         'rows',
-        'type'
+        'type',
+        'realTime'
     ];
 
     /**

@@ -10,3 +10,4 @@ This Application uses:
 1. [Laravel](https://laravel.com/)
 2. [Laravel-Excel](https://github.com/Maatwebsite/Laravel-Excel)
 3. [Laravel Sanctum](https://laravel.com/docs/8.x/sanctum)
+

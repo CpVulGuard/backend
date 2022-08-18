@@ -16,13 +16,10 @@
                                 <span class="text-gray-300">ID</span>
                             </th>
                             <th class="px-5 py-2">
-                                <span class="text-gray-300 whitespace-nowrap">Name</span>
+                                <span class="text-gray-300">Email</span>
                             </th>
                             <th class="px-5 py-2">
-                                <span class="text-gray-300">email</span>
-                            </th>
-                            <th class="px-5 py-2">
-                                <span class="text-gray-300">Berechtigung</span>
+                                <span class="text-gray-300">Role</span>
                             </th>
                         </tr>
                         </thead>
@@ -31,9 +28,6 @@
                             <tr class="bg-white border-4 border-gray-200">
                                 <td>
                                     <span class="text-center ml-5 font-semibold">{{$user['id']}}</span>
-                                </td>
-                                <td class="px-16 py-2">
-                                    <span class="text-center ml-5 font-semibold">{{$user['name']}}</span>
                                 </td>
                                 <td class="px-16 py-2">
                                     <span class="text-center ml-5 font-semibold">{{$user['email']}}</span>

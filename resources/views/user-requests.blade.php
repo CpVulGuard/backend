@@ -16,13 +16,13 @@
                                 <span class="text-gray-300">Typ</span>
                             </th>
                             <th class="px-16 py-2">
-                                <span class="text-gray-300 whitespace-nowrap">StackOverFlow ID</span>
+                                <span class="text-gray-300 whitespace-nowrap">Stack Overflow ID</span>
                             </th>
                             <th class="px-16 py-2">
-                                <span class="text-gray-300">Grund</span>
+                                <span class="text-gray-300">Reason</span>
                             </th>
                             <th class="px-16 py-2">
-                                <span class="text-gray-300">Annehmen/Ablehnen</span>
+                                <span class="text-gray-300">Accept/Reject</span>
                             </th>
                         </tr>
                         </thead>
@@ -31,9 +31,9 @@
                             <tr class="bg-white border-4 border-gray-200">
                                 <td>
                             @if($userRequest['type'] == 'add')
-                                    <span class="text-center bg-green-500 ml-2 font-semibold">Hinzufügen</span>
+                                    <span class="text-center bg-green-500 ml-2 font-semibold">Add</span>
                             @elseif($userRequest['type'] == 'delete')
-                                    <span class="text-center bg-red-500 ml-2 font-semibold">Löschen</span>
+                                    <span class="text-center bg-red-500 ml-2 font-semibold">Delete</span>
                             @endif
                                 </td>
                                 <td class="px-16 py-2">

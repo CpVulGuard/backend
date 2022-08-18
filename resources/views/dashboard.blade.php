@@ -12,7 +12,7 @@
                     <form class="flex justify-center items-baseline" method="GET">
                         <div class="form-group mb-2">
                             <label for="filter" class="col-sm-2 col-form-label mr-2">Filter:</label>
-                            <input type="text" class="form-control" id="filter" name="filter" placeholder="StackOverFlow ID..." value="{{$filter}}">
+                            <input type="text" class="form-control" id="filter" name="filter" placeholder="StackOverFlow ID or Reason..." value="{{$filter}}">
                         </div>
                         <button type="submit" class="bg-gray-300 hover:bg-gray-400 font-bold ml-4 py-2 px-4 h-10 rounded-l rounded-r">Filter</button>
                         @if(isset($filter))
@@ -33,13 +33,13 @@
                                 <span class="text-gray-300">@sortablelink('id', 'ID')</span>
                             </th>
                             <th class="px-16 py-2">
-                                <span class="text-gray-300 whitespace-nowrap">@sortablelink('soPostId', 'StackOverFlow ID')</span>
+                                <span class="text-gray-300 whitespace-nowrap">@sortablelink('soPostId', 'Stack Overflow ID')</span>
                             </th>
                             <th class="px-16 py-2">
-                                <span class="text-gray-300">@sortablelink('reason', 'Grund')</span>
+                                <span class="text-gray-300">@sortablelink('reason', 'Reason')</span>
                             </th>
                              <th class="px-16 py-2">
-                                <span class="text-gray-300">@sortablelink('imported', 'imported')</span>
+                                <span class="text-gray-300">@sortablelink('imported', 'Imported')</span>
                             </th>
                         </tr>
                         </thead>
@@ -57,9 +57,9 @@
                                 </td>
                                 <td class="px-16 py-2">
                                 @if($post['imported'] == 0)
-                                     <span class="text-center ml-2 font-semibold">Nein</span>
+                                     <span class="text-center ml-2 font-semibold">No</span>
                                 @elseif($post['imported'] == 1)
-                                    <span class="text-center ml-2 font-semibold">Ja</span>
+                                    <span class="text-center ml-2 font-semibold">Yes</span>
                                 @endif
                                    
                                 </td>
